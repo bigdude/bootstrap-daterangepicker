@@ -581,7 +581,7 @@
             var lastMonth = firstDay.clone().addMonths(-1).getMonth();
             var lastYear = firstDay.clone().addMonths(-1).getFullYear();
 
-            var daysInLastMonth = this.getDaysInMonth(lastYear, lastMonth);
+            var daysInLastMonth = Date.create(lastMonth, lastYear).daysInMonth();
 
             var dayOfWeek = firstDay.getDay();
 
@@ -730,10 +730,6 @@
 
             return html;
 
-        },
-
-        getDaysInMonth: function (y, m) {
-           return /8|3|5|10/.test(--m)?30:m==1?(!(y%4)&&y%100)||!(y%400)?29:28:31;
         }
 
     };
