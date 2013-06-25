@@ -577,12 +577,11 @@
 
         buildCalendar: function (month, year, side) {
 
-            var firstDay = Date.create('today').set({ day: 1, month: month, year: year });
+            var firstDay = Date.create({ day: 1, month: month, year: year });
             var lastMonth = firstDay.clone().addMonths(-1).getMonth();
             var lastYear = firstDay.clone().addMonths(-1).getFullYear();
 
-            var daysInLastMonth = Date.create(lastMonth, lastYear).daysInMonth();
-
+            var daysInLastMonth = Date.create({month: lastMonth, year: lastYear}).daysInMonth();
             var dayOfWeek = firstDay.getDay();
 
             //initialize a 6 rows x 7 columns array for the calendar
